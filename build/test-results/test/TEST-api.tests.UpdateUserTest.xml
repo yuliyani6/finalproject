@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="api.tests.UpdateUserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-30T16:35:29" hostname="LAPTOP-KNP6RUNT" time="1.611">
+<testsuite name="api.tests.UpdateUserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-30T17:05:31" hostname="LAPTOP-KNP6RUNT" time="0.921">
   <properties/>
-  <testcase name="updateUser" classname="api.tests.UpdateUserTest" time="1.611"/>
+  <testcase name="updateUser" classname="api.tests.UpdateUserTest" time="0.921"/>
   <system-out><![CDATA[{
     "id": "6888bbdae181cd857f467528",
     "firstName": "Michael",
     "lastName": "Douglas",
     "email": "yuliyani1753791450408@example.com",
     "registerDate": "2025-07-29T12:17:30.555Z",
-    "updatedDate": "2025-07-30T16:35:29.639Z"
+    "updatedDate": "2025-07-30T17:05:31.916Z"
 }
 user updated Response: {
     "id": "6888bbdae181cd857f467528",
@@ -16,7 +16,7 @@ user updated Response: {
     "lastName": "Douglas",
     "email": "yuliyani1753791450408@example.com",
     "registerDate": "2025-07-29T12:17:30.555Z",
-    "updatedDate": "2025-07-30T16:35:29.639Z"
+    "updatedDate": "2025-07-30T17:05:31.916Z"
 }
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

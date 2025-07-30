@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="api.tests.GetUserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-30T16:35:17" hostname="LAPTOP-KNP6RUNT" time="2.442">
+<testsuite name="api.tests.GetUserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-30T17:05:24" hostname="LAPTOP-KNP6RUNT" time="1.262">
   <properties/>
-  <testcase name="testGetUserId" classname="api.tests.GetUserTest" time="2.442"/>
+  <testcase name="testGetUserId" classname="api.tests.GetUserTest" time="1.262"/>
   <system-out><![CDATA[{
     "id": "688884f2e181cd02e146628d",
     "firstName": "Yuliyani",

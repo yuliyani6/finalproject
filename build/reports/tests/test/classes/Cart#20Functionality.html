@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">1</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">9.735s</div>
+<div class="counter">14.329s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">50%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,16 +61,36 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Tests</a>
+<a href="#tab0">Failed tests</a>
 </li>
 <li>
-<a href="#tab1">Standard output</a>
+<a href="#tab1">Tests</a>
 </li>
 <li>
-<a href="#tab2">Standard error</a>
+<a href="#tab2">Standard output</a>
+</li>
+<li>
+<a href="#tab3">Standard error</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="Remove item from cart"></a>
+<h3 class="failures">Remove item from cart</h3>
+<span class="code">
+<pre>java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at org.junit.Assert.assertFalse(Assert.java:75)
+	at web.steps.CartSteps.item_should_not_be_in_cart(CartSteps.java:37)
+	at ✽.&quot;Sauce Labs Bike Light&quot; should not be in the cart(file:///C:/Users/Asus%20Vivobook/IdeaProjects/finalproject/src/test/resources/features/web/cart.feature:17)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -82,17 +102,17 @@
 </thead>
 <tr>
 <td class="success">Add item to cart</td>
-<td class="success">5.142s</td>
+<td class="success">9.980s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">Remove item from cart</td>
-<td class="success">4.593s</td>
-<td class="success">passed</td>
+<td class="failures">Remove item from cart</td>
+<td class="failures">4.349s</td>
+<td class="failures">failed</td>
 </tr>
 </table>
 </div>
-<div id="tab1" class="tab">
+<div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
 <pre>
@@ -110,19 +130,27 @@ Scenario: Remove item from cart                          # src/test/resources/fe
   When User navigates to the cart page                   # web.steps.CartSteps.user_navigates_to_cart()
   And User removes &quot;Sauce Labs Bike Light&quot; from the cart # web.steps.CartSteps.user_removes_item(java.lang.String)
   Then &quot;Sauce Labs Bike Light&quot; should not be in the cart # web.steps.CartSteps.item_should_not_be_in_cart(java.lang.String)
+      java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at org.junit.Assert.assertFalse(Assert.java:75)
+	at web.steps.CartSteps.item_should_not_be_in_cart(CartSteps.java:37)
+	at âœ½.&quot;Sauce Labs Bike Light&quot; should not be in the cart(file:///C:/Users/Asus%20Vivobook/IdeaProjects/finalproject/src/test/resources/features/web/cart.feature:17)
+
 </pre>
 </span>
 </div>
-<div id="tab2" class="tab">
+<div id="tab3" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>Jul 30, 2025 11:35:33 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+<pre>Jul 31, 2025 12:05:40 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 138
-Jul 30, 2025 11:35:33 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+Jul 31, 2025 12:05:40 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 138.0.7204.183. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.11.0` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-Jul 30, 2025 11:35:37 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Jul 31, 2025 12:05:43 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 138
-Jul 30, 2025 11:35:37 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+Jul 31, 2025 12:05:43 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 138.0.7204.183. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.11.0` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 </pre>
 </span>
@@ -135,7 +163,7 @@ WARNING: Unable to find version of CDP to use for 138.0.7204.183. You may need t
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.2</a> at Jul 30, 2025, 11:35:53 PM</p>
+<a href="http://www.gradle.org">Gradle 7.2</a> at Jul 31, 2025, 12:05:57 AM</p>
 </div>
 </div>
 </body>

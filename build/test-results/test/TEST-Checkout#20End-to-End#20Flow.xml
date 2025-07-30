@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Checkout End-to-End Flow" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-30T16:35:41" hostname="LAPTOP-KNP6RUNT" time="3.894">
+<testsuite name="Checkout End-to-End Flow" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-30T17:05:46" hostname="LAPTOP-KNP6RUNT" time="3.684">
   <properties/>
-  <testcase name="End-to-end checkout" classname="Checkout End-to-End Flow" time="3.894"/>
+  <testcase name="End-to-end checkout" classname="Checkout End-to-End Flow" time="3.684"/>
   <system-out><![CDATA[
 @web @checkout @endtoend
 Scenario: End-to-end checkout                                                 # src/test/resources/features/web/checkout.feature:5
@@ -14,9 +14,9 @@ Scenario: End-to-end checkout                                                 # 
   And User clicks the finish button                                           # web.steps.CheckoutSteps.user_clicks_finish()
   Then User should see the confirmation message "Thank you for your order!"   # web.steps.CheckoutSteps.user_sees_confirmation(java.lang.String)
 ]]></system-out>
-  <system-err><![CDATA[Jul 30, 2025 11:35:42 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <system-err><![CDATA[Jul 31, 2025 12:05:47 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 138
-Jul 30, 2025 11:35:42 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+Jul 31, 2025 12:05:47 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 138.0.7204.183. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.11.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
 </testsuite>

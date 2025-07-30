@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="api.tests.DeleteUserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-30T16:35:15" hostname="LAPTOP-KNP6RUNT" time="2.414">
+<testsuite name="api.tests.DeleteUserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-30T17:05:21" hostname="LAPTOP-KNP6RUNT" time="2.36">
   <properties/>
-  <testcase name="deleteUser" classname="api.tests.DeleteUserTest" time="2.414"/>
+  <testcase name="deleteUser" classname="api.tests.DeleteUserTest" time="2.36"/>
   <system-out><![CDATA[Check User Response: {
     "error": "RESOURCE_NOT_FOUND"
 }
