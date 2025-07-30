@@ -1,19 +1,20 @@
 package api.tests;
-import org.junit.runner.RunWith;
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features/api", // sesuaikan path feature kamu
-        glue = {"api.steps"},                         // package tempat step definitions
+        features = "src/test/resources/features/api",  // Lokasi file .feature
+        glue = "api.steps",                   // Lokasi step definitions
         plugin = {
                 "pretty",
-                "html:reports/html/api-report.html",
-                "json:reports/json/api-report.json"
+                "html:target/api/cucumber-report.html",
+                "json:target/api/cucumber-report.json"
         },
         monochrome = true,
-        tags = "@api" // opsional, bisa dihapus kalau mau jalanin semua
+        tags = "@api"
 )
 public class TestRunner {
 }

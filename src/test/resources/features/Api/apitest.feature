@@ -1,5 +1,5 @@
+@api
 Feature: Dummy API
-
   @api
   Scenario: Create a new user
     Given I have user details with first name "Yuliyani", last name "Aprilyani", and a unique email
