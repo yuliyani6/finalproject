@@ -1,0 +1,16 @@
+{
+&    "id": "6888bbdae181cd857f467528",
+    "firstName": "Michael",
+    "lastName": "Douglas",
+2    "email": "yuliyani1753791450408@example.com",
+0    "registerDate": "2025-07-29T12:17:30.555Z",
+.    "updatedDate": "2025-07-29T16:02:23.003Z"
+}
+user updated Response: {
+&    "id": "6888bbdae181cd857f467528",
+    "firstName": "Michael",
+    "lastName": "Douglas",
+2    "email": "yuliyani1753791450408@example.com",
+0    "registerDate": "2025-07-29T12:17:30.555Z",
+.    "updatedDate": "2025-07-29T16:02:23.003Z"
+}
