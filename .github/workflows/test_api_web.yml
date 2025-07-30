@@ -42,24 +42,24 @@ jobs:
         run: ./gradlew test --tests "*TestRunner" -Dcucumber.filter.tags="@web"
 
       # ----------------------------
-      # Debug Report Files (Optional)
+      # Upload Reports (HTML & JSON)
       # ----------------------------
-      - name: Debug - List contents of reports/
-        if: always()
-        run: ls -la reports || echo "No reports folder"
+      - name: List Report Files (Debug)
+        run: ls -R reports || echo "No report files found"
 
-      - name: Debug - List contents of target/
+      - name: Upload Web Report
         if: always()
-        run: ls -la target || echo "No target folder"
-
-      # ----------------------------
-      # Upload Reports
-      # ----------------------------
-      - name: Upload Test Reports
         uses: actions/upload-artifact@v4
-        if: always()
         with:
-          name: combined-reports
-          path: |
-            reports/
-            target/
+           name: web-report
+           path: |
+             target/web/cucumber-html-report.html
+             target/web/cucumber-report.json
+
+      - name: Upload API Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+           name: api-report
+           path: |
+             target/api/cucumber-report.html
