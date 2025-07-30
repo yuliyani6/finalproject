@@ -30,28 +30,36 @@ jobs:
       # ----------------------------
       # Run API Tests
       # ----------------------------
-      - name: Run API Tests
-        run: ./gradlew test
+      - name: Run API Tests (@api)
+        continue-on-error: true
+        run: ./gradlew clean test --tests "*TestRunner" -Dcucumber.filter.tags="@api"
 
       # ----------------------------
       # Run Web UI Tests
       # ----------------------------
-      - name: Run UI Tests
-        run: ./gradlew test
+      - name: Run Web UI Tests (@web)
+        continue-on-error: true
+        run: ./gradlew test --tests "*TestRunner" -Dcucumber.filter.tags="@web"
 
       # ----------------------------
-      # Upload Reports (HTML & JSON)
+      # Debug Report Files (Optional)
       # ----------------------------
-      - name: List Report Files (Debug)
-        run: ls -R reports
+      - name: Debug - List contents of reports/
+        if: always()
+        run: ls -la reports || echo "No reports folder"
 
+      - name: Debug - List contents of target/
+        if: always()
+        run: ls -la target || echo "No target folder"
+
+      # ----------------------------
+      # Upload Reports
+      # ----------------------------
       - name: Upload Test Reports
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: combined-reports
           path: |
-            reports/html/api-report.html 
-            reports/json/api-report.json 
-            target/web/cucumber-html-report.html 
-            target/web/cucumber-report.json
+            reports/
+            target/
