@@ -32,14 +32,14 @@ jobs:
       # ----------------------------
       - name: Run API Tests (@api)
         continue-on-error: true
-        run: ./gradlew clean test --tests "*TestRunner" -Dcucumber.filter.tags="@api"
+        run: ./gradlew  test
 
       # ----------------------------
       # Run Web UI Tests
       # ----------------------------
       - name: Run Web UI Tests (@web)
         continue-on-error: true
-        run: ./gradlew test --tests "*TestRunner" -Dcucumber.filter.tags="@web"
+        run: ./gradlew test
 
       # ----------------------------
       # Upload Reports (HTML & JSON)
