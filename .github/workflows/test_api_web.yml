@@ -53,7 +53,7 @@ jobs:
         with:
           name: combined-reports
           path: |
-            reports/api-report.html
-            reports/api-report.json
-            target/web-report.html
-            target/web-report.json
+            reports/html/api-report.html 
+            reports/json/api-report.json 
+            target/web/cucumber-html-report.html 
+            target/web/cucumber-report.json
