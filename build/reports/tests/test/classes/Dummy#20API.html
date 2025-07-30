@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class Dummy API</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class Dummy API</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/default-package.html">default-package</a> &gt; Dummy API</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">4</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">9.581s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">Create a new user</td>
+<td class="success">4.810s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Delete user</td>
+<td class="success">3.094s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Get user by ID</td>
+<td class="success">0.737s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Update the created user</td>
+<td class="success">0.940s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>
+@api
+Scenario: Create a new user                                                                       # src/test/resources/features/api/apitest.feature:4
+[DEBUG] Request Body: {&quot;firstName&quot;: &quot;Yuliyani&quot;, &quot;lastName&quot;: &quot;Aprilyani&quot;, &quot;email&quot;: &quot;yuliyani.aprilyani1753885008309@example.com&quot; }
+[DEBUG] Response: {&quot;id&quot;:&quot;688a29527393e03eccb48231&quot;,&quot;firstName&quot;:&quot;Yuliyani&quot;,&quot;lastName&quot;:&quot;Aprilyani&quot;,&quot;email&quot;:&quot;yuliyani.aprilyani1753885008309@example.com&quot;,&quot;registerDate&quot;:&quot;2025-07-30T14:16:50.389Z&quot;,&quot;updatedDate&quot;:&quot;2025-07-30T14:16:50.389Z&quot;}
+[DEBUG] Status Code: 200
+[CREATE] User ID Created: 688a29527393e03eccb48231
+  Given I have user details with first name &quot;Yuliyani&quot;, last name &quot;Aprilyani&quot;, and a unique email # api.steps.UserStepDefinitions.iHaveUserDetails(java.lang.String,java.lang.String)
+[DEBUG] Create User Response: {&quot;id&quot;:&quot;688a29547393e05ce6b48234&quot;,&quot;firstName&quot;:&quot;Bintang&quot;,&quot;lastName&quot;:&quot;Bersinar&quot;,&quot;email&quot;:&quot;bintang.1753885012057@example.com&quot;,&quot;registerDate&quot;:&quot;2025-07-30T14:16:52.108Z&quot;,&quot;updatedDate&quot;:&quot;2025-07-30T14:16:52.108Z&quot;}
+  When I send a request to create the user                                                        # api.steps.UserStepDefinitions.iSendARequestToCreateTheUser()
+[SUCCESS] User Created with ID: 688a29547393e05ce6b48234
+  Then the user should be created successfully                                                    # api.steps.UserStepDefinitions.theUserShouldBeCreatedSuccessfully()
+
+@api
+Scenario: Get user by ID                           # src/test/resources/features/api/apitest.feature:11
+[CHECK] Current User ID: 688a29547393e05ce6b48234
+  Given I have the saved user ID                   # api.steps.UserStepDefinitions.iHaveTheSavedUserID()
+[GET] Request to: https://dummyapi.io/data/v1/user/688a29547393e05ce6b48234
+  When I send a GET request to &quot;/user/{id}&quot;        # api.steps.UserStepDefinitions.iSendAGETRequestTo(java.lang.String)
+  Then the response status should be 200           # api.steps.UserStepDefinitions.theResponseStatusShouldBe(int)
+  And the response should contain the user details # api.steps.UserStepDefinitions.theResponseShouldContainTheUserDetails()
+
+@api
+Scenario: Update the created user                          # src/test/resources/features/api/apitest.feature:18
+  Given I have a valid user ID                             # api.steps.UserStepDefinitions.i_have_valid_user_id()
+  When I send a PUT request to update the user with:       # api.steps.UserStepDefinitions.i_send_put_request(io.cucumber.datatable.DataTable)
+    | firstName | Michael                           |
+    | lastName  | Douglas                           |
+    | email     | yuliyani1753791450408@example.com |
+  Then the response status code should be 200              # api.steps.UserStepDefinitions.verify_put_status_code()
+  And the response should contain the updated user details # api.steps.UserStepDefinitions.verify_updated_user_details()
+
+@api
+Scenario: Delete user                          # src/test/resources/features/api/apitest.feature:28
+[CHECK] Current User ID: 688a29547393e05ce6b48234
+  Given I have the saved user ID               # api.steps.UserStepDefinitions.iHaveTheSavedUserID()
+[DELETE] Request to: https://dummyapi.io/data/v1/user/688a29547393e05ce6b48234
+[DEBUG] Delete Response: {&quot;id&quot;:&quot;688a29547393e05ce6b48234&quot;}
+  When I send a DELETE request to &quot;/user/{id}&quot; # api.steps.UserStepDefinitions.iSendADELETERequestTo(java.lang.String)
+  Then the response status should be 200       # api.steps.UserStepDefinitions.theResponseStatusShouldBe(int)
+[CHECK] User successfully deleted.
+  And the user should no longer exist          # api.steps.UserStepDefinitions.theUserShouldNoLongerExist()
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.2</a> at Jul 30, 2025, 9:16:57 PM</p>
+</div>
+</div>
+</body>
+</html>

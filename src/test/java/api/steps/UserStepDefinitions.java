@@ -27,7 +27,7 @@ public class UserStepDefinitions {
         public void iHaveUserDetails(String firstName, String lastName) {
             String uniqueEmail = firstName.toLowerCase() + "." + lastName.toLowerCase() + System.currentTimeMillis() + "@example.com";
 
-            //Debugging request body
+
             String requestBody = "{\"firstName\": \"" + firstName + "\", \"lastName\": \"" + lastName + "\", \"email\": \"" + uniqueEmail + "\" }";
             System.out.println("[DEBUG] Request Body: " + requestBody);
 
@@ -38,16 +38,16 @@ public class UserStepDefinitions {
                     .when()
                     .post(BASE_URL + "/user/create");
 
-            //Debugging Response
+
             System.out.println("[DEBUG] Response: " + response.asString());
             System.out.println("[DEBUG] Status Code: " + response.getStatusCode());
 
-            //jika gagal, hentikan test
+
             if (response.getStatusCode() != 200){
                 throw new RuntimeException("User creation failed! Response: " + response.asString());
             }
 
-            //simpan userID untuk digunakan di test berikutnya
+
         userID = response.jsonPath().getString("id");
             System.out.println("[CREATE] User ID Created: " + userID);
             Assert.assertNotNull("User ID should not be null after creation",userID);
@@ -67,7 +67,7 @@ public class UserStepDefinitions {
 
             System.out.println("[DEBUG] Create User Response: " + response.asString());
 
-            //simpan userID untuk langkah selanjutnya
+
             userID = response.jsonPath().getString("id");
         }
 
@@ -164,8 +164,9 @@ public class UserStepDefinitions {
                 .header("Content-Type", "application/json")
                 .body(updatedData.toString())
                 .when()
-                .put(BASE_URL + "/user/" + userID );
+                .put(BASE_URL + "/user/" + userID);
     }
+
 
 
     @Then("the response status code should be 200")

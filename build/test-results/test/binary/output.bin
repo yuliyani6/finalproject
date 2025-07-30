@@ -1,16 +1,42 @@
-{
-&    "id": "6888bbdae181cd857f467528",
-    "firstName": "Michael",
-    "lastName": "Douglas",
-2    "email": "yuliyani1753791450408@example.com",
-0    "registerDate": "2025-07-29T12:17:30.555Z",
-.    "updatedDate": "2025-07-29T16:02:23.003Z"
-}
-user updated Response: {
-&    "id": "6888bbdae181cd857f467528",
-    "firstName": "Michael",
-    "lastName": "Douglas",
-2    "email": "yuliyani1753791450408@example.com",
-0    "registerDate": "2025-07-29T12:17:30.555Z",
-.    "updatedDate": "2025-07-29T16:02:23.003Z"
-}
+
+@api
+óScenario: Create a new user                                                                       # src/test/resources/features/api/apitest.feature:4
+É[DEBUG] Request Body: {"firstName": "Yuliyani", "lastName": "Aprilyani", "email": "yuliyani.aprilyani1753885008309@example.com" }
+Ï[DEBUG] Response: {"id":"688a29527393e03eccb48231","firstName":"Yuliyani","lastName":"Aprilyani","email":"yuliyani.aprilyani1753885008309@example.com","registerDate":"2025-07-30T14:16:50.389Z","updatedDate":"2025-07-30T14:16:50.389Z"}
+[DEBUG] Status Code: 200
+4[CREATE] User ID Created: 688a29527393e03eccb48231
+∑  Given I have user details with first name "Yuliyani", last name "Aprilyani", and a unique email # api.steps.UserStepDefinitions.iHaveUserDetails(java.lang.String,java.lang.String)
+Ï[DEBUG] Create User Response: {"id":"688a29547393e05ce6b48234","firstName":"Bintang","lastName":"Bersinar","email":"bintang.1753885012057@example.com","registerDate":"2025-07-30T14:16:52.108Z","updatedDate":"2025-07-30T14:16:52.108Z"}
+¢  When I send a request to create the user                                                        # api.steps.UserStepDefinitions.iSendARequestToCreateTheUser()
+:[SUCCESS] User Created with ID: 688a29547393e05ce6b48234
+®  Then the user should be created successfully                                                    # api.steps.UserStepDefinitions.theUserShouldBeCreatedSuccessfully()
+
+@api
+iScenario: Get user by ID                           # src/test/resources/features/api/apitest.feature:11
+3[CHECK] Current User ID: 688a29547393e05ce6b48234
+j  Given I have the saved user ID                   # api.steps.UserStepDefinitions.iHaveTheSavedUserID()
+M[GET] Request to: https://dummyapi.io/data/v1/user/688a29547393e05ce6b48234
+y  When I send a GET request to "/user/{id}"        # api.steps.UserStepDefinitions.iSendAGETRequestTo(java.lang.String)
+s  Then the response status should be 200           # api.steps.UserStepDefinitions.theResponseStatusShouldBe(int)
+}  And the response should contain the user details # api.steps.UserStepDefinitions.theResponseShouldContainTheUserDetails()
+
+@api
+qScenario: Update the created user                          # src/test/resources/features/api/apitest.feature:18
+s  Given I have a valid user ID                             # api.steps.UserStepDefinitions.i_have_valid_user_id()
+ê  When I send a PUT request to update the user with:       # api.steps.UserStepDefinitions.i_send_put_request(io.cucumber.datatable.DataTable)
+6    | firstName | Michael                           |
+6    | lastName  | Douglas                           |
+6    | email     | yuliyani1753791450408@example.com |
+u  Then the response status code should be 200              # api.steps.UserStepDefinitions.verify_put_status_code()
+z  And the response should contain the updated user details # api.steps.UserStepDefinitions.verify_updated_user_details()
+
+@api
+eScenario: Delete user                          # src/test/resources/features/api/apitest.feature:28
+3[CHECK] Current User ID: 688a29547393e05ce6b48234
+f  Given I have the saved user ID               # api.steps.UserStepDefinitions.iHaveTheSavedUserID()
+P[DELETE] Request to: https://dummyapi.io/data/v1/user/688a29547393e05ce6b48234
+<[DEBUG] Delete Response: {"id":"688a29547393e05ce6b48234"}
+x  When I send a DELETE request to "/user/{id}" # api.steps.UserStepDefinitions.iSendADELETERequestTo(java.lang.String)
+o  Then the response status should be 200       # api.steps.UserStepDefinitions.theResponseStatusShouldBe(int)
+$[CHECK] User successfully deleted.
+m  And the user should no longer exist          # api.steps.UserStepDefinitions.theUserShouldNoLongerExist()

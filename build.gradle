@@ -29,7 +29,7 @@ dependencies {
 
     // Logging
     implementation 'org.slf4j:slf4j-simple:2.0.7'
-
+    testImplementation 'org.json:json:20210307'
     // Cucumber Report
     testImplementation 'net.masterthought:cucumber-reporting:5.7.7'
     testImplementation 'org.junit.vintage:junit-vintage-engine:5.10.0'
