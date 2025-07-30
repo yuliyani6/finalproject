@@ -32,7 +32,7 @@ jobs:
       # ----------------------------
       - name: Run API Tests (@api)
         continue-on-error: true
-        run: ./gradlew clean test --tests "*TestRunner" -Dcucumber.filter.tags="@api"
+        run: ./gradlew test --tests "*TestRunner" -Dcucumber.filter.tags="@api"
 
       # ----------------------------
       # Run Web UI Tests
