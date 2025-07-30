@@ -25,7 +25,11 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Web & API Tests
-        run: ./gradlew clean test
+        run: ./gradlew  test
+
+      - name: List Report Files (Debug)
+        run: ls -R target/ || echo "No report files found"
+
 
       - name: Upload Web Report
         if: always()
