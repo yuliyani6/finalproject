@@ -55,5 +55,5 @@ jobs:
           path: |
             reports/api-report.html
             reports/api-report.json
-            reports/web-report.html
-            reports/web-report.json
+            target/web-report.html
+            target/web-report.json
