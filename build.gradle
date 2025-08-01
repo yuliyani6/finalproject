@@ -56,9 +56,10 @@ tasks.register('copyAllReports', Copy) {
     from("target/web") {
         include 'cucumber-html-report.html', 'cucumber-report.json'
     }
-    from("target/api") {
-        include 'cucumber-report.html'
+    from("target/cucumber-reports/api") {
+        include "cucumber-reports-api-test.html"
     }
+
     into("${buildDir}/reports/final-cucumber-report")
 
 }
