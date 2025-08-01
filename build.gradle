@@ -60,6 +60,7 @@ tasks.register('copyAllReports', Copy) {
         include 'cucumber-report.html'
     }
     into("${buildDir}/reports/final-cucumber-report")
+
 }
 
 test.finalizedBy(copyAllReports)

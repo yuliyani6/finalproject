@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">9.561s</div>
+<div class="counter">5.425s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,22 +79,22 @@
 </thead>
 <tr>
 <td class="success">Create a new user</td>
-<td class="success">4.261s</td>
+<td class="success">1.131s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Delete user</td>
-<td class="success">3.638s</td>
+<td class="success">3.056s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Get user by ID</td>
-<td class="success">0.882s</td>
+<td class="success">0.559s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Update the created user</td>
-<td class="success">0.780s</td>
+<td class="success">0.679s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -105,21 +105,21 @@
 <pre>
 @api @api
 Scenario: Create a new user                                                                       # src/test/resources/features/api/apitest.feature:4
-[DEBUG] Request Body: {&quot;firstName&quot;: &quot;Yuliyani&quot;, &quot;lastName&quot;: &quot;Aprilyani&quot;, &quot;email&quot;: &quot;yuliyani.aprilyani1754026348549@example.com&quot; }
-[DEBUG] Response: {&quot;id&quot;:&quot;688c516edbcc8e0f96b33990&quot;,&quot;firstName&quot;:&quot;Yuliyani&quot;,&quot;lastName&quot;:&quot;Aprilyani&quot;,&quot;email&quot;:&quot;yuliyani.aprilyani1754026348549@example.com&quot;,&quot;registerDate&quot;:&quot;2025-08-01T05:32:30.980Z&quot;,&quot;updatedDate&quot;:&quot;2025-08-01T05:32:30.980Z&quot;}
+[DEBUG] Request Body: {&quot;firstName&quot;: &quot;Yuliyani&quot;, &quot;lastName&quot;: &quot;Aprilyani&quot;, &quot;email&quot;: &quot;yuliyani.aprilyani1754028145320@example.com&quot; }
+[DEBUG] Response: {&quot;id&quot;:&quot;688c5871c7c4bf550b5a3fd7&quot;,&quot;firstName&quot;:&quot;Yuliyani&quot;,&quot;lastName&quot;:&quot;Aprilyani&quot;,&quot;email&quot;:&quot;yuliyani.aprilyani1754028145320@example.com&quot;,&quot;registerDate&quot;:&quot;2025-08-01T06:02:25.618Z&quot;,&quot;updatedDate&quot;:&quot;2025-08-01T06:02:25.618Z&quot;}
 [DEBUG] Status Code: 200
-[CREATE] User ID Created: 688c516edbcc8e0f96b33990
+[CREATE] User ID Created: 688c5871c7c4bf550b5a3fd7
   Given I have user details with first name &quot;Yuliyani&quot;, last name &quot;Aprilyani&quot;, and a unique email # api.steps.UserStepDefinitions.iHaveUserDetails(java.lang.String,java.lang.String)
-[DEBUG] Create User Response: {&quot;id&quot;:&quot;688c5170dbcc8e4befb33993&quot;,&quot;firstName&quot;:&quot;Bintang&quot;,&quot;lastName&quot;:&quot;Bersinar&quot;,&quot;email&quot;:&quot;bintang.1754026352131@example.com&quot;,&quot;registerDate&quot;:&quot;2025-08-01T05:32:32.368Z&quot;,&quot;updatedDate&quot;:&quot;2025-08-01T05:32:32.368Z&quot;}
+[DEBUG] Create User Response: {&quot;id&quot;:&quot;688c5872c7c4bf8fa85a3fda&quot;,&quot;firstName&quot;:&quot;Bintang&quot;,&quot;lastName&quot;:&quot;Bersinar&quot;,&quot;email&quot;:&quot;bintang.1754028145881@example.com&quot;,&quot;registerDate&quot;:&quot;2025-08-01T06:02:26.142Z&quot;,&quot;updatedDate&quot;:&quot;2025-08-01T06:02:26.142Z&quot;}
   When I send a request to create the user                                                        # api.steps.UserStepDefinitions.iSendARequestToCreateTheUser()
-[SUCCESS] User Created with ID: 688c5170dbcc8e4befb33993
+[SUCCESS] User Created with ID: 688c5872c7c4bf8fa85a3fda
   Then the user should be created successfully                                                    # api.steps.UserStepDefinitions.theUserShouldBeCreatedSuccessfully()
 
 @api @api
 Scenario: Get user by ID                           # src/test/resources/features/api/apitest.feature:11
-[CHECK] Current User ID: 688c5170dbcc8e4befb33993
+[CHECK] Current User ID: 688c5872c7c4bf8fa85a3fda
   Given I have the saved user ID                   # api.steps.UserStepDefinitions.iHaveTheSavedUserID()
-[GET] Request to: https://dummyapi.io/data/v1/user/688c5170dbcc8e4befb33993
+[GET] Request to: https://dummyapi.io/data/v1/user/688c5872c7c4bf8fa85a3fda
   When I send a GET request to &quot;/user/{id}&quot;        # api.steps.UserStepDefinitions.iSendAGETRequestTo(java.lang.String)
   Then the response status should be 200           # api.steps.UserStepDefinitions.theResponseStatusShouldBe(int)
   And the response should contain the user details # api.steps.UserStepDefinitions.theResponseShouldContainTheUserDetails()
@@ -136,10 +136,10 @@ Scenario: Update the created user                          # src/test/resources/
 
 @api @api
 Scenario: Delete user                          # src/test/resources/features/api/apitest.feature:28
-[CHECK] Current User ID: 688c5170dbcc8e4befb33993
+[CHECK] Current User ID: 688c5872c7c4bf8fa85a3fda
   Given I have the saved user ID               # api.steps.UserStepDefinitions.iHaveTheSavedUserID()
-[DELETE] Request to: https://dummyapi.io/data/v1/user/688c5170dbcc8e4befb33993
-[DEBUG] Delete Response: {&quot;id&quot;:&quot;688c5170dbcc8e4befb33993&quot;}
+[DELETE] Request to: https://dummyapi.io/data/v1/user/688c5872c7c4bf8fa85a3fda
+[DEBUG] Delete Response: {&quot;id&quot;:&quot;688c5872c7c4bf8fa85a3fda&quot;}
   When I send a DELETE request to &quot;/user/{id}&quot; # api.steps.UserStepDefinitions.iSendADELETERequestTo(java.lang.String)
   Then the response status should be 200       # api.steps.UserStepDefinitions.theResponseStatusShouldBe(int)
 [CHECK] User successfully deleted.
@@ -155,7 +155,7 @@ Scenario: Delete user                          # src/test/resources/features/api
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.2</a> at Aug 1, 2025, 12:32:38 PM</p>
+<a href="http://www.gradle.org">Gradle 7.2</a> at Aug 1, 2025, 1:02:50 PM</p>
 </div>
 </div>
 </body>
