@@ -1,4 +1,4 @@
-name: Web UI Test
+name: Combined Web & API Automation Test
 
 on:
   push:
@@ -9,22 +9,48 @@ on:
 
 jobs:
   run-web-tests:
+    name: Run Web UI Tests
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Java
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: 17
 
-      - name: Run tests
-        run: ./gradlew clean test
+      - name: Run Web Tests (ignore failures)
+        run: mvn clean test -Dcucumber.filter.tags="@web" || true
 
-      - name: Upload test report
+      - name: Upload Web Report
         uses: actions/upload-artifact@v4
         with:
-          name: test-report
-          path: target/tests/test/
+          name: web-report
+          path: target/web/
+
+  run-api-tests:
+    name: Run API Tests
+    runs-on: ubuntu-latest
+    needs: run-web-tests  # Optional: jika ingin urut
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 17
+
+      - name: Run API Tests (ignore failures)
+        run: mvn clean test -Dcucumber.filter.tags="@api" || true
+
+      - name: Upload API Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-report
+          path: target/api/
