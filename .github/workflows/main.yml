@@ -5,38 +5,38 @@ on:
     branches: ["main"]
   pull_request:
     branches: ["main"]
-  workflow_dispatch:
 
 jobs:
   run-web-tests:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Java 17
+      - name: Setup JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
-      - name: Give permission to gradlew
-        run: chmod +x gradlew
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
 
-      - name: Run automation test
-        run: ./gradlew clean test
+      - name: Grant permission to execute Gradle
+        run: chmod +x ./gradlew
 
-      - name: Show directory listing (debug)
-        run: |
-          echo "Checking build folder:"
-          ls -R build
+      - name: Run UI Tests
+        run: ./gradlew test
 
-      - name: Upload test reports
-        if: always()
+      - name: List Report Files (Debug)
+        run: ls -R target/web || echo "No report files found"
+
+      - name: Upload Cucumber Reports (HTML + JSON)
         uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: test-report
+          name: cucumber-reports
           path: |
-            build/reports/tests/test/
-            build/cucumber-reports/
+            target/web/cucumber-html-report.html
+            target/web/cucumber-report.json

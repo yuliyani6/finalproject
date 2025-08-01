@@ -46,11 +46,24 @@ test {
     testLogging {
         events "passed", "skipped", "failed"
     }
+    exclude '/TestRunner.class'
 
     // Agar tetap generate report meskipun test gagal
     ignoreFailures = true
 }
+tasks.register('apiTest', Test) {
+    useJUnitPlatform()
 
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+
+    // Jalankan hanya TestRunner khusus API
+    include '/api/runners/TestRunner.class'
+
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
 // 📌 Tambahkan setelah blok test {} di atas
 tasks.register('copyAllReports', Copy) {
     from("target/web") {
@@ -63,5 +76,3 @@ tasks.register('copyAllReports', Copy) {
     into("${buildDir}/reports/final-cucumber-report")
 
 }
-
-test.finalizedBy(copyAllReports)
